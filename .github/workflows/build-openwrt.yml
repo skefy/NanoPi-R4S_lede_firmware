@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
+  CONFIG_FILE: .lede_config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -58,8 +58,24 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone --depth=1 $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        
+        # update luci-theme-argon、luci-theme-edge
+        cd openwrt/package/lean
+        rm -rf luci-theme-argon
+        git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git 
+        git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge.git
+        cd ../../../
+        
+        # 添加 dockerman
+        git clone --depth=1 https://github.com/lisaac/luci-app-dockerman.git
+        mv luci-app-dockerman/applications/luci-app-dockerman/ openwrt/package/lean/
+        
+        # 添加 openclash
+        # echo "=== add openclash ==="
+        # git clone --depth=1 https://github.com/vernesong/OpenClash.git
+        # mv OpenClash/luci-app-openclash openwrt/package/
 
     - name: Load custom feeds
       run: |
