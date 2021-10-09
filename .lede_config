@@ -97,7 +97,7 @@ CONFIG_DEFAULT_luci-app-arpbind=y
 CONFIG_DEFAULT_luci-app-autoreboot=y
 CONFIG_DEFAULT_luci-app-ddns=y
 CONFIG_DEFAULT_luci-app-filetransfer=y
-# CONFIG_DEFAULT_luci-app-ipsec-vpnd=y
+CONFIG_DEFAULT_luci-app-ipsec-vpnd=n
 CONFIG_DEFAULT_luci-app-nlbwmon=y
 CONFIG_DEFAULT_luci-app-ramfree=y
 CONFIG_DEFAULT_luci-app-ssr-plus=y
@@ -107,7 +107,7 @@ CONFIG_DEFAULT_luci-app-upnp=y
 CONFIG_DEFAULT_luci-app-vlmcsd=y
 CONFIG_DEFAULT_luci-app-vsftpd=y
 CONFIG_DEFAULT_luci-app-wol=y
-# CONFIG_DEFAULT_luci-app-zerotier=y
+CONFIG_DEFAULT_luci-app-zerotier=n
 CONFIG_DEFAULT_luci-newapi=y
 CONFIG_DEFAULT_mkf2fs=y
 CONFIG_DEFAULT_mtd=y
@@ -149,7 +149,7 @@ CONFIG_EXTERNAL_CPIO=""
 # Root filesystem archives
 #
 # CONFIG_TARGET_ROOTFS_CPIOGZ is not set
-# CONFIG_TARGET_ROOTFS_TARGZ is not set
+CONFIG_TARGET_ROOTFS_TARGZ=y
 
 #
 # Root filesystem images
