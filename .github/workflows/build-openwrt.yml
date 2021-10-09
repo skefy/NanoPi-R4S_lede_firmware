@@ -76,6 +76,9 @@ jobs:
         # echo "=== add openclash ==="
         # git clone --depth=1 https://github.com/vernesong/OpenClash.git
         # mv OpenClash/luci-app-openclash openwrt/package/
+        
+        # check space usage
+        df -hT $PWD
 
     - name: Load custom feeds
       run: |
@@ -113,6 +116,7 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        df -hT $PWD
 
     - name: Compile the firmware
       id: compile
