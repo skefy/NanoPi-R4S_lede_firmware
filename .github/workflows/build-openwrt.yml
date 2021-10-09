@@ -57,7 +57,9 @@ jobs:
     - name: Clone source code
       working-directory: /workdir
       run: |
-        df -hT $PWD
+        echo "====="
+        df -hT 
+        echo "====="
         git clone --depth=1 $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
@@ -78,7 +80,9 @@ jobs:
         # mv OpenClash/luci-app-openclash openwrt/package/
         
         # check space usage
-        df -hT $PWD
+        echo "====="
+        df -hT
+        echo "====="
 
     - name: Load custom feeds
       run: |
@@ -116,7 +120,9 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-        df -hT $PWD
+        echo "====="
+        df -hT 
+        echo "====="
 
     - name: Compile the firmware
       id: compile
