@@ -74,6 +74,10 @@ jobs:
         git clone --depth=1 https://github.com/lisaac/luci-app-dockerman.git
         mv luci-app-dockerman/applications/luci-app-dockerman/ openwrt/package/lean/
         
+        # 添加 istore (第三方应用商店）
+        git clone --depth=1 https://github.com/linkease/istore.git
+        mv istore/luci/luci-app-store/ openwrt/package/lean/
+        
         # 添加 openclash
         # echo "=== add openclash ==="
         # git clone --depth=1 https://github.com/vernesong/OpenClash.git
