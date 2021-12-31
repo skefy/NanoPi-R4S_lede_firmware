@@ -72,6 +72,7 @@ jobs:
         
         # 添加 dockerman
         git clone --depth=1 https://github.com/lisaac/luci-app-dockerman.git
+        rm -rf openwrt/package/lean/luci-app-dockerman
         mv luci-app-dockerman/applications/luci-app-dockerman/ openwrt/package/lean/
         
         # 添加 istore (第三方应用商店）
