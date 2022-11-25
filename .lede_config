@@ -1649,7 +1649,7 @@ CONFIG_PACKAGE_usign=y
 #
 # CONFIG_ZABBIX_OPENSSL is not set
 # CONFIG_ZABBIX_GNUTLS is not set
-# CONFIG_ZABBIX_NOSSL=y
+CONFIG_ZABBIX_NOSSL=y
 # CONFIG_PACKAGE_zabbix-extra-network is not set
 # CONFIG_PACKAGE_zabbix-extra-wifi is not set
 # CONFIG_PACKAGE_zabbix-get is not set
