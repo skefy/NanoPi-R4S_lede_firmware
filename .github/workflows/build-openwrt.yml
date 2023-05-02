@@ -35,7 +35,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-23.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
@@ -48,7 +48,11 @@ jobs:
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
-        sudo -E apt-get -qq install libpython3-dev
+        sudo -E apt-get -qq install ack bison ccache cmake cpio \
+                            fastjar haveged help2man intltool libglib2.0-dev libltdl-dev \
+                            libmpc-dev libmpfr-dev libncursesw5-dev libreadline-dev lrzsz \
+                            mkisofs nano ninja-build pkgconf python3-pyelftools \
+                            libpython3-dev scons squashfs-tools upx-ucl vim xxd
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
