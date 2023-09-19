@@ -39,6 +39,11 @@ jobs:
 
     steps:
     
+    - name: Update Package List and Remove Dotnet
+      run: | 
+        sudo apt-get update
+        sudo apt-get remove -y '^dotnet-.*'
+          
     - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
